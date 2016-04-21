@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4ad07"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.transcationproject.MainActivity">
+
+    <Button
+        android:id="@+id/addA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Add A"/>
+
+    <Button
+        android:id="@+id/removeA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/addA"
+        android:layout_toRightOf="@id/addA"
+        android:text="Remove A"/>
+
+    <Button
+        android:id="@+id/replaceAwithB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/removeA"
+        android:layout_toRightOf="@id/removeA"
+        android:text="ReplaceAWithB"/>
+
+    <Button
+        android:id="@+id/addB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addA"
+        android:text="ADD B"
+        />
+
+    <Button
+        android:id="@+id/removeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/removeA"
+        android:layout_toRightOf="@id/addB"
+        android:text="Remove B"/>
+
+    <Button
+        android:id="@+id/replaceBwithA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/replaceAwithB"
+        android:layout_toRightOf="@id/removeB"
+        android:text="ReplaceBwithA"/>
+
+    <Button
+        android:id="@+id/attachA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addB"
+        android:text="Attach A"
+        />
+
+    <Button
+        android:id="@+id/deattachA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addB"
+        android:layout_toRightOf="@id/attachA"
+        android:text="deAttach A"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attachA"
+        android:text="Back"/>
+
+    <Button
+        android:id="@+id/POp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attachA"
+        android:layout_toRightOf="@id/backButton"
+        android:text="Pop Add B"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/backButton"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ffeeee"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#eeeeff">
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">FragTranscationProj</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="titles">
+        <item>Kamran</item>
+        <item>Moosa</item>
+        <item>Qasim</item>
+        <item>Bilal</item>
+        <item>Imran</item>
+        <item>Baba</item>
+        <item>Babar</item>
+        <item>Ali</item>
+        <item>Faiz</item>
+        <item>Adnan</item>
+    </string-array>
+    <string-array name="description">
+        <item>My name is Kamran ALi. I am studying an FUUAST(Federal Urdu University of Science and Technoogy)!</item>
+        <item>My name is Moosa Khan. I am a Android Developer and student at FUUAST.</item>
+        <item>My name is Qasim. I am beginner at Android Programming and student at FUUAST.</item>
+        <item>My name is Bilal. I am a PTCL wala and student at FUUAST.</item>
+        <item>My name is Imran Khan, and I am a hr kaam se jaan churaany wala and zimadari ko nhi pechanany wala and student at FUUAST.</item>
+        <item>My name is Abdul Samad Muslim. I am a Chokidaar in pentCoat at PC(Pearl COntinental) and student at FUUAST.</item>
+        <item>My name is Babar. And I am a Squaden Leader and Student FUUAST.</item>
+        <item>My name Zeeshan Haider. I am student at FUUAST and Learning Android at SUET.</item>
+        <item>My name is Faiz. I am a Android Developer and student at FUUAST.</item>
+        <item>My name is Adnan Ahmed, and I am a Android Developer and student at FUUAST.</item>
+    </string-array>
+</resources>

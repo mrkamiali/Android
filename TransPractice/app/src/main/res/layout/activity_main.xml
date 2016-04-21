@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#faa403"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.transpractice.MainActivity">
+
+    <Button
+        android:id="@+id/addA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add A"/>
+
+    <Button
+        android:id="@+id/removeA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/addA"
+        android:text="Remove A"/>
+
+    <Button
+        android:id="@+id/replaceAwithB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/removeA"
+        android:text="ReplaceAwithB"/>
+
+    <Button
+        android:id="@+id/addB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addA"
+        android:text="Add B"/>
+
+    <Button
+        android:id="@+id/removeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addA"
+        android:layout_toRightOf="@id/addB"
+        android:text="Remove B"/>
+
+    <Button
+        android:id="@+id/replaceBwithA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addA"
+        android:layout_toRightOf="@id/removeB"
+        android:text="ReplaceBwithA"/>
+
+
+    <Button
+        android:id="@+id/atachA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addB"
+        android:text="AtachA"/>
+
+    <Button
+        android:id="@+id/detachB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addB"
+        android:layout_toRightOf="@id/atachA"
+        android:text="DetachB"/>
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atachA"
+        android:text="Back"/>
+
+    <Button
+        android:id="@+id/popAddB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atachA"
+        android:layout_toRightOf="@id/back"
+        android:text="Pop Add B"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/popAddB"
+        android:background="#000000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#d0fff5"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="#eeeeff"></ScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

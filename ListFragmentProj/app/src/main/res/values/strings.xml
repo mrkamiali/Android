@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ListFragmentProj</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="heros">
+        <item>Kamran</item>
+        <item>Bilal</item>
+        <item>Moosa</item>
+        <item>BABA</item>
+        <item>Imran</item>
+    </string-array>
+</resources>
