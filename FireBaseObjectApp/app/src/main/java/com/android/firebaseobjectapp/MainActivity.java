@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButton;
     private List<Message> mMessages;
     private ListView listView;
-
+    private CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         mButton = (Button) findViewById(R.id.button_Upload);
         listView = (ListView) findViewById(R.id.list_View);
         mMessages = new ArrayList<>();
-        final CustomAdapter adapter = new CustomAdapter(mMessages, this);
-
+        adapter = new CustomAdapter(mMessages, this);
+        retrieveItemxs();
 
         mEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -57,12 +57,29 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mEditText.setText("");
-                listView.setAdapter(adapter);
                 sendMessage();
+                mEditText.setText("");
             }
         });
 
+    }
+
+    private void retrieveItemxs() {
+        mFirebase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    Message message = data.getValue(Message.class);
+                    Log.d("MSG", message.toString());
+                    listView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
     }
 
     private void sendMessage() {
@@ -70,19 +87,22 @@ public class MainActivity extends AppCompatActivity {
 
         Random random = new Random();
         final String name = "Author" + random.nextInt(1000);
-        Message message = new Message(name, msg, (int) System.currentTimeMillis(), 0);
+        Message message = new Message(name, msg, System.currentTimeMillis(), 0);
         mFirebase.push().setValue(message);
 
+
+    }
+
+    private void setClickList() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int id1 = mMessages.get(position).getId();
-                mFirebase.child(name).removeValue();
+                //mFirebase.child(name).removeValue();
             }
         });
 
     }
-
 }
 
 

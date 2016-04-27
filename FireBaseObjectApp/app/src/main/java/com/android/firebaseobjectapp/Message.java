@@ -9,6 +9,19 @@ public class Message {
     private long time;
     private int id;
 
+    public Message() {
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "name='" + name + '\'' +
+                ", msg='" + msg + '\'' +
+                ", time=" + time +
+                ", id=" + id +
+                '}';
+    }
+
     public Message(String name, String msg, long time, int id) {
         this.name = name;
         this.msg = msg;
