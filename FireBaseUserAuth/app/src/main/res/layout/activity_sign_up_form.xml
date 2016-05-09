@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.firebaseuserauth.SignUpForm">
+
+    <EditText
+        android:id="@+id/editText_Name_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:hint="UserName/Email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/editText_Pass_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_Name_UP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignRight="@+id/editText_Name_UP"
+        android:layout_below="@+id/editText_Name_UP"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/button_SignUp_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:text="Sign_Up"/>
+
+    <EditText
+        android:id="@+id/editText_DOB_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_Pass_UP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText_Pass_UP"
+        android:layout_below="@+id/editText_Pass_UP"
+        android:ems="10"
+        android:hint="Dateofbirth e.g dd/mm/yyy"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/editText_Fname_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_DOB_UP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText_DOB_UP"
+        android:layout_below="@+id/editText_DOB_UP"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/editText_gender_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_Fname_UP"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText_Fname_UP"
+        android:layout_below="@+id/editText_Fname_UP"
+        android:hint="Gender"/>
+
+
+</RelativeLayout>
