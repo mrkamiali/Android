@@ -1,50 +1,44 @@
 package com.android.firebaseuserauth;
 
 /**
- * Created by Kamran ALi on 5/10/2016.
+ * Created by Kamran ALi on 5/11/2016.
  */
 public class Message {
-    private String title;
-    private String sender;
-    private int id;
-    private boolean read;
+    private String name;
+    private String msg;
+    private boolean checkBox;
 
-    public Message(String title, String sender, int id, boolean read) {
-        this.title = title;
-        this.sender = sender;
-        this.id = id;
-        this.read = read;
+
+    public Message(String name, String msg, boolean checkBox) {
+        this.name = name;
+        this.msg = msg;
+        this.checkBox = checkBox;
     }
 
-    public String getTitle() {
-        return title;
+    public Message() {
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public boolean isCheckBox() {
+        return checkBox;
     }
 
-    public String getSender() {
-        return sender;
+    public void setCheckBox(boolean checkBox) {
+        this.checkBox = checkBox;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public String getName() {
+        return name;
     }
 
-    public int getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getMsg() {
+        return msg;
     }
 
-    public boolean isRead() {
-        return read;
-    }
-
-    public void setRead(boolean read) {
-        this.read = read;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

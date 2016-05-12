@@ -1,10 +1,9 @@
 package com.android.firebaseuserauth;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,103 +11,159 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class TodoListFire extends AppCompatActivity {
-    private ListView emailList;
-    private Button addItem;
-    private List<Message> messages;
-    private MessageAdapter adapter;
-    private DataBase db = new DataBase(this);
-
+    private Firebase firebase;
+    ListView listView;
+    ArrayList<Message> message;
+    CustomAdapter adapter;
+    Button addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_list_fire);
 
+        firebase = new Firebase("https://loginaut.firebaseio.com/");
 
-        emailList = (ListView) findViewById(R.id.message_item_ListView);
-        addItem = (Button) findViewById(R.id.button_add);
-        setupEmailList();
-        addItemPrompt();
+        listView = (ListView) findViewById(R.id.list_View);
+        addButton = (Button) findViewById(R.id.buttonAdd);
+        //initializing Array list
+        message = new ArrayList<>();
+        //Initiliazing Custom Adapter
+        adapter = new CustomAdapter(this, message);
+        //Adding item to ArrayList of type Message Class
+        //message.add(new Message("Kamran", "ALi"));
+        //setting adapter to listView
+        listView.setAdapter(adapter);
 
-    }
-
-    public void addItemPrompt() {
-        addItem.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(TodoListFire.this);
-
-                View view = getLayoutInflater().inflate(R.layout.dialoge_layout, null);
-
-                final EditText addTitle = (EditText) view.findViewById(R.id.add_item_title);
-                final EditText addMsg = (EditText) view.findViewById(R.id.add_item_message);
-                final CheckBox checkView = (CheckBox) view.findViewById(R.id.tick_box_View);
-
+                builder.setTitle("Add Item");
+                builder.setMessage("Add Name and Message inthe above Field!");
+                View view = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+                final EditText nameView = (EditText) view.findViewById(R.id.editTextName);
+                final EditText msgView = (EditText) view.findViewById(R.id.editTextMsg);
+                final CheckBox checkBox = (CheckBox) view.findViewById(R.id.edit_checkBox);
                 builder.setView(view);
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String title = addTitle.getText().toString();
-                        String msg = addMsg.getText().toString();
-                        boolean read = checkView.isChecked();
+                        firebase.child("Data").child(firebase.getAuth().getUid()).push().setValue(new Message(nameView.getText().toString(), msgView.getText().toString(), checkBox.isChecked()));
+                        //  listView.setAdapter(adapter);
 
-                        Message email = new Message(title, msg, 0, read);
-                        messages.add(email);
 
-                        db.savingList(email);
-
-                        adapter.notifyDataSetChanged();
+                        //     adapter.notifyDataSetChanged();
                     }
-
                 });
-                builder.setNegativeButton("Cancel", null);
+                builder.setNegativeButton("BACK", null);
 
                 builder.create().show();
             }
         });
-    }
 
-    private void setupEmailList() {
-
-        messages = new ArrayList<Message>();
-
-//        messages.add(new Message("Kamran", "My name is Kamran", 0, false));
-
-        Log.d("TAG", "Message is" + messages);
-
-        emailList = (ListView) findViewById(R.id.message_item_ListView);
-
-        messages = db.reterivingList();
-
-        adapter = new MessageAdapter((ArrayList<Message>) messages, this);
-
-
-        emailList.setAdapter(adapter);
-
-
-        emailList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        firebase.child("Data").child(firebase.getAuth().getUid()).addChildEventListener(new ChildEventListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(TodoListFire.this);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                builder.setMessage("Click delete to delete Item!");
-                builder.setNegativeButton("Cancel", null);
+                Message msg = dataSnapshot.getValue(Message.class);
+
+                message.add(new Message(msg.getName().toString(), msg.getMsg().toString(), msg.isCheckBox()));
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, final long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(TodoListFire.this);
+                builder.setTitle("Delete Item !");
+                builder.setMessage("Wanna delete Selected Item Click Delete.");
+                builder.setNegativeButton("Back", null);
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        int id = messages.get(position).getId();
-                        messages.remove(position);
-                        db.deleteItem(id);
-                        adapter.notifyDataSetChanged();
+                        firebase.child("Data").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                int i = 0;
+                                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                    if (i == position) {
+                                        Firebase ref = data.getRef();
+                                        ref.removeValue();
+                                        message.remove(position);
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                    i++;
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
+
+                            }
+                        });
                     }
                 });
+
                 builder.create().show();
-                return true;
             }
         });
+
+
     }
+
+   /* @Override
+    public void valueCheck(final int pos, final boolean checkk) {
+        firebase.child("Data").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = 0;
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    if (i == pos) {
+                        Firebase ref = data.getRef();
+                        ref.child("checkBox").setValue(!checkk);
+                        // adapter.notifyDataSetChanged();
+                    }
+                    i++;
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }*/
 }
