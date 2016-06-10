@@ -58,7 +58,10 @@ public class TodoListFire extends AppCompatActivity {
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        firebase.child("Data").child(firebase.getAuth().getUid()).push().setValue(new Message(nameView.getText().toString(), msgView.getText().toString(), checkBox.isChecked()));
+                        firebase.child("Data").child(firebase.getAuth().getUid()).push().setValue(new
+                                Message(nameView.getText().toString(),
+                                msgView.getText().toString(),
+                                checkBox.isChecked()));
                         //  listView.setAdapter(adapter);
 
 
