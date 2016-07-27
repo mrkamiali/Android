@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="com.android.firebasetodoapp.SigninFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:gravity="center_horizontal"
+        android:text="MyTo-DoApp"
+        android:textColor="#fff"
+        android:textSize="40dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <ImageView
+            android:layout_marginRight="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/account"
+
+            />
+
+        <EditText
+            android:id="@+id/edittext_signin_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="Email"
+            android:textColorHint="#fff"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px">
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            android:id="@+id/paswordIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/edittext_signin_email"
+            android:background="@drawable/key"
+            />
+
+        <EditText
+            android:layout_weight="2"
+            android:id="@+id/edittext_signin_pasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:hint="Pasword"
+            android:inputType="textWebPassword"
+            android:shadowColor="#ff07cd"
+            android:textColorHint="#fff"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="100dp"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:id="@+id/button_signin_frag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:text="     Sign In     "
+            android:textColor="#4a91e9"
+            />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_signUp_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_weight="0.5"
+        android:background="#00000000"
+        android:text="Sign Up!"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/textView_Signuptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_signUp_frag"
+        android:layout_centerHorizontal="true"
+        android:text="Don&apos;t you have Account SignUp now !"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fff"/>
+
+</RelativeLayout>

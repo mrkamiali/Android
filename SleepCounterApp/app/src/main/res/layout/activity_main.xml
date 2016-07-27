@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.android.sleepcounterapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter How much you sleep in Weekdays!"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/weekdays_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:inputType="number"
+            android:hint="i.e 6  or 6.5"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter How much you sleep in WeekEnd!"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/weekend_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:hint="i.e 6  or 6.5"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Optimal sleep for hole week ?"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:inputType="number"
+            android:id="@+id/optimalSleep_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:hint="i.e 50 or 60 or 70"/>
+    </LinearLayout>
+    <Button
+        android:onClick="clculateSleep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clculate Sleep!"/>
+
+
+
+</LinearLayout>

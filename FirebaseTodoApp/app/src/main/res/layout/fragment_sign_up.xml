@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.android.firebasetodoapp.SignUpFragment">
+
+
+    <EditText
+        android:id="@+id/edtviewFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:hint="First Name"
+
+        />
+
+    <EditText
+        android:id="@+id/edtviewLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtviewFirstName"
+        android:hint="Last Name"/>
+
+
+    <EditText
+        android:id="@+id/edtviewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtviewLastName"
+        android:hint="Email"/>
+
+    <EditText
+        android:id="@+id/edtviewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtviewEmail"
+        android:hint="Password"
+        android:password="true"/>
+
+
+    <EditText
+        android:id="@+id/editTextDob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtviewPassword"
+        android:ems="10"
+        android:hint="Date/Month/Year"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/editGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextDob"
+        android:hint="Gender: Male Or Female"
+        />
+
+    <Button
+        android:id="@+id/signup_frag_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Sign Up"/>
+
+</RelativeLayout>
