@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         exp_View = (ExpandableListView) findViewById(R.id.android_Versions_list);
 
-        parents=new ArrayList<>();
+        parents = new ArrayList<>();
 
         for (int i=0;i<10;i++){
             ArrayList<Child> children=new ArrayList<>();

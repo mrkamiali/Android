@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         parent = new ArrayList<>();
         for (int i = 0 ;i<10)
+
         adapter = new Exp_Adapter(this,parent);
 
         exp_View.setAdapter(adapter);
