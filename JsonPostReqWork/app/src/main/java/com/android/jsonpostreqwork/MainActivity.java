@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         service = retrofit.create(ApiTok.class);
+        
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
