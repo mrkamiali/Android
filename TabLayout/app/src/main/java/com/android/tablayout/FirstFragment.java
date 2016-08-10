@@ -25,9 +25,12 @@ import java.util.List;
  */
 public class FirstFragment extends Fragment {
     private ListView listeView;
+
     private Button button;
+
     private ListViewFirstAdapter listViewAdapter;
     private List<Message> messages;
+
     private DataBase db;
     private DataBaseSecond db2;
 
