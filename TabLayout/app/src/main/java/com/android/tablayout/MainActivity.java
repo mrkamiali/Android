@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new FragAdapter(getSupportFragmentManager(), mFragments);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
+
         mViewPager.setAdapter(adapter);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
