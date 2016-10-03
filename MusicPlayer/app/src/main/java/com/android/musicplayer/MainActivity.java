@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
-    private Button playButton, pauseButton;
+    private Button playButton, stopButton;
     private MediaPlayer mMediaPlayer;
 
     @Override
@@ -16,22 +18,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         playButton = (Button) findViewById(R.id.play_button);
-        pauseButton = (Button) findViewById(R.id.pause_button);
-        mMediaPlayer = MediaPlayer.create(this, R.raw.inna_yalla);
+        stopButton = (Button) findViewById(R.id.stop);
+
+        mMediaPlayer = mMediaPlayer.create(MainActivity.this, R.raw.inna_yalla);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "PlayButton CLicked", Toast.LENGTH_LONG).show();
-                mMediaPlayer.start();
+            public void onClick(View view) {
+                if (mMediaPlayer.isPlaying()) {
+                    mMediaPlayer.pause();
+                } else
+                    mMediaPlayer.start();
             }
         });
-        pauseButton.setOnClickListener(new View.OnClickListener() {
+        stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                mMediaPlayer.pause();
+            public void onClick(View view) {
+                if (mMediaPlayer != null) {
+                    mMediaPlayer.stop();
+                    try {
+                        mMediaPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else
+                    Toast.makeText(MainActivity.this, "Nothing Playing", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

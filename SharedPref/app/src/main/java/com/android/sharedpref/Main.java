@@ -11,11 +11,13 @@ public class Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         et1 = (EditText) findViewById(R.id.edit_Text1);
         et2 = (EditText) findViewById(R.id.edit_Text2);
 
         SharedPreferences settings = getSharedPreferences("MYPREFS", 0);
+
         et1.setText(settings.getString("tvalue1", ""));
         et2.setText(settings.getString("tvalue2", ""));
 
