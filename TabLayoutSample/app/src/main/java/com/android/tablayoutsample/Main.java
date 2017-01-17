@@ -35,16 +35,16 @@ public class Main extends AppCompatActivity {
         mFragmentArrayList.add(mTab2);
         mFragmentArrayList.add(mTab3);
 
-        mTabLayout.addTab(mTabLayout.newTab().setText("TAB 1"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("TAB 2"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("TAB 3"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Tab1"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Tab2"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Tab3"));
 
         adapter = new TabAdapter(getSupportFragmentManager(), mFragmentArrayList);
 
         mViewPager.setAdapter(adapter);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mViewPager.setOffscreenPageLimit(0);
+        mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
